@@ -2,9 +2,7 @@ package ayesh.sorting;
 
 import ayesh.sorting.utils.Swapper;
 
-/**
- * Created by ayesh on 2/21/17.
- */
+
 public class Insertion {
 
     public static void Sort(int[] array){

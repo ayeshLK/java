@@ -1,2 +1,8 @@
 #*.class files
 *.class
+
+#.iml files
+*.iml
+
+#.idea directory
+.idea

@@ -1,4 +1,4 @@
-#Ayesh ALmeida - Java Algorithms#
+#Ayesh Almeida - Java Algorithms#
 
 ##Pre-Requisites##
 * Java 8+

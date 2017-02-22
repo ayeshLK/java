@@ -19,8 +19,13 @@ public class Main {
 
         System.out.println("Bubble Sort");
         int[] arr3 = {9,14,3,2,43,11,58,22};
-        Insertion.Sort(arr3);
+        Bubble.Sort(arr3);
         Printer.printArray(arr3);
+        System.out.println("");
+
+        System.out.println("Merge Sort");
+        int[] arr4 = {9,14,3,2,43,11,58,22};
+        Printer.printArray(Merge.Sort(arr4));
         System.out.println("");
     }
 

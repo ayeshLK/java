@@ -27,6 +27,12 @@ public class Main {
         int[] arr4 = {9,14,3,2,43,11,58,22};
         Printer.printArray(Merge.Sort(arr4));
         System.out.println("");
+
+        System.out.println("Quick Sort");
+        int[] arr5 = {9,14,3,2,43,11,58,22};
+        Quick.Sort(arr5);
+        Printer.printArray(arr5);
+        System.out.println("");
     }
 
 }

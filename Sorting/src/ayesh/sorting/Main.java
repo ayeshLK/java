@@ -33,6 +33,12 @@ public class Main {
         Quick.Sort(arr5);
         ArrayHandler.printArray(arr5);
         System.out.println("");
+
+        System.out.println("Shell Sort");
+        int[] arr6 = {9,14,3,2,43,11,58,22};
+        Shell.Sort(arr6);
+        ArrayHandler.printArray(arr6);
+        System.out.println("");
     }
 
 }

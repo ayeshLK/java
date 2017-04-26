@@ -1,10 +1,17 @@
 package vendingmachine.java.sample;
 
-/**
- * Created by ayesh on 4/25/17.
- */
 public class Main {
     public static void main(String args[]){
-        System.out.println("Hello World!");
+        VendingMachine machine = new VendingMachine();
+
+        int[] inputs = {5,5,10,5,5,5};
+        for(int i : inputs){
+            machine.doVending(i);
+        }
+
+        if (machine.getMoneyAmount() != 0){
+            System.out.println("Machine has Rs "+machine.getMoneyAmount()+" more.");
+        }
+        System.out.println("Vending Stopped!");
     }
 }

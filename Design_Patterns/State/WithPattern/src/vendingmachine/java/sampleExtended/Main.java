@@ -1,24 +1,37 @@
 package vendingmachine.java.sampleExtended;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Main {
     public static void main(String args[]){
         VendingMachineSmplExt machine = new VendingMachineSmplExt();
 
-        int[] inputs = {2, 5,5,10,5,5,5,5,10,10};
-        for(int i : inputs){
-//            System.out.println("State : "+machine.getCurrentState().hashCode());
-            if(machine.getMoneyAmount() >= 10){
+        while (true){
+            if(machine.getCurrentState() == State.VENDING){
                 machine.goNext(0);
+                continue;
+            }else {
+                String input = getLine();
+                if(input.equals("") || input.equals(null)){
+                    machine.goNext(0);
+                }else {
+                    machine.goNext(Integer.parseInt(input));
+                }
             }
-            machine.goNext(i);
         }
+    }
 
-        if(machine.getMoneyAmount() >= 10)
-            machine.goNext(0);
-
-        if (machine.getMoneyAmount() != 0){
-            System.out.println("Machine has Rs "+machine.getMoneyAmount()+" more.");
+    static String getLine() {
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        String line = null;
+        try {
+            System.out.print("Please Enter the amount : ");
+            line = in.readLine();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
-        System.out.println("Vending Stopped!");
+        return line;
     }
 }

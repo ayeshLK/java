@@ -5,7 +5,7 @@ public class VendingMachineSmplExt {
     private int moneyAmount;
 
     public VendingMachineSmplExt() {
-        setCurrentState(DefaultState.INSTANCE);
+        setCurrentState(State.DEFAULT);
         setMoneyAmount(0);
     }
 

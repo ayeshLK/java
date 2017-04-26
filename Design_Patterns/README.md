@@ -7,4 +7,4 @@ used in many different situations.
 
 ## Why we need Design Patterns ## 
 * Design Patterns are proven solutions to problems occur in Software Engineering.
-* Lets the Developers communication between developers more efficient.
+* Lets the communication between developers more efficient.

@@ -6,3 +6,6 @@
 
 #.idea directory
 .idea
+
+#generated-files-when compiling
+out

@@ -1,6 +1,6 @@
 package ayesh.sorting;
 
-import ayesh.sorting.utils.Swapper;
+import ayesh.sorting.utils.SortHelper;
 
 public class Selection {
 
@@ -13,7 +13,7 @@ public class Selection {
                 }
             }
             if(min != i){
-                Swapper.Swap(array, min, i);
+                SortHelper.Swap(array, min, i);
             }
         }
     }

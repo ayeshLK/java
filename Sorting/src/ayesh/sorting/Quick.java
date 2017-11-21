@@ -1,6 +1,6 @@
 package ayesh.sorting;
 
-import ayesh.sorting.utils.Swapper;
+import ayesh.sorting.utils.SortHelper;
 
 public class Quick {
 
@@ -27,10 +27,10 @@ public class Quick {
         int i = low - 1;
         for(int j = low; j <= high; j++){
             if(array[j] < value){
-                Swapper.Swap(array, ++i, j);
+                SortHelper.Swap(array, ++i, j);
             }
         }
-        Swapper.Swap(array, i+1, high);
+        SortHelper.Swap(array, i+1, high);
         return i+1;
     }
 

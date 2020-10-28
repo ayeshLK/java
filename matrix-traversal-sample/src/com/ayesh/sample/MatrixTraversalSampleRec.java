@@ -4,10 +4,10 @@ public class MatrixTraversalSampleRec {
     public static boolean isPathExist(int[][] maze) {
         if (maze.length == 1 && maze[0].length == 1) {
             return maze[0][0] == 0;
-        } else if (maze[0].length > 1 && isPathExist(retrievePartialMatrix(maze, 0, 1, "Right Path"))) {
-            return true;
-        } else if (maze[1].length > 1 && isPathExist(retrievePartialMatrix(maze, 1, 0, "Down Path"))) {
-            return true;
+        } else if (maze[0][0] == 0){
+            if (maze[0].length > 1 && isPathExist(retrievePartialMatrix(maze, 0, 1, "Right Path"))) {
+                return true;
+            } else return maze[1].length > 1 && isPathExist(retrievePartialMatrix(maze, 1, 0, "Down Path"));
         } else {
             return false;
         }
@@ -19,10 +19,11 @@ public class MatrixTraversalSampleRec {
         int k = 0;
         for (int i = startY; i < matrix.length; i++) {
             int l = 0;
-            for (int j = startX; j < matrix[i].length - startX; j++) {
+            for (int j = startX; j < matrix[i].length; j++) {
                 int val = matrix[i][j];
-                System.out.println(String.format("K [%d] L [%d] Val [%d]", k, l, val));
-                updated[k][l++] = val;
+                if (l < matrix[i].length - startX) {
+                    updated[k][l++] = val;
+                }
             }
             k++;
         }

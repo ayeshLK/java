@@ -45,7 +45,8 @@ target/
 #=== JReble =====
 rebel.xml
 
-
+# Output directory #
+out/
 
 # Node
 node_modules/

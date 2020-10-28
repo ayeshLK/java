@@ -1,9 +1,13 @@
 package com.ayesh.sample;
 
+import static com.ayesh.sample.CommonUtils.printMatrix;
+
 public class MatrixTraversalSampleRec {
     public static boolean isPathExist(int[][] maze, int startX, int startY) {
         String message = String.format("Start X [%d] Start Y [%d]", startX, startY);
+
         printMatrix(maze, startX, startY, message);
+
         if (startX == maze.length - 1 && startY == maze[startX].length - 1) {
             return true;
         } else if (startY <= maze[0].length - 2 && maze[startX][startY + 1] == 0){
@@ -21,16 +25,6 @@ public class MatrixTraversalSampleRec {
         } else {
             System.out.println("No Solution Found");
             return false;
-        }
-    }
-
-    private static void printMatrix(int[][] source, int startX, int startY, String message) {
-        System.out.println(message);
-        for (int i = startX; i < source.length; i++) {
-            for (int j = startY; j < source[i].length; j++) {
-                System.out.print(source[i][j] + " ");
-            }
-            System.out.println("");
         }
     }
 

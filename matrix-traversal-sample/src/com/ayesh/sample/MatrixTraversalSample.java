@@ -1,6 +1,39 @@
 package com.ayesh.sample;
 
+import static com.ayesh.sample.CommonUtils.printArr;
+
 public final class MatrixTraversalSample {
+    public static boolean isPathExistV2(int[][] maze) {
+        Point currentPoint = new Point(0, 0);
+        Point target = new Point(maze.length - 1, maze[0].length - 1);
+
+        Point[] path = new Point[maze.length * maze[0].length];
+
+        int pathIdx = 0;
+
+        int targetYValue = 0;
+
+        for (int xPoint = 0; xPoint < maze.length; xPoint++) {
+            for (int yPoint = targetYValue; yPoint < maze[xPoint].length; yPoint++) {
+                currentPoint = new Point(xPoint, yPoint);
+                int targetValue = maze[xPoint][yPoint];
+                if (currentPoint.getxPoint() == target.getxPoint() && currentPoint.getyPoint() == target.getyPoint()) {
+                    printArr("Successful path finding", path);
+                    return true;
+                } else {
+                    if (canProceed(maze, xPoint, yPoint)) {
+                        path[pathIdx++] = currentPoint;
+                    } else if (canProceed(maze, xPoint + 1, yPoint)) {
+                        path[pathIdx++] = currentPoint;
+                    } else if (canProceed(maze, xPoint, yPoint + 1)) {
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+
     public static boolean isPathExist(int[][] maze) {
         Point currentPoint = new Point(0, 0);
         Point target = new Point(maze.length - 1, maze[0].length - 1);
@@ -38,6 +71,10 @@ public final class MatrixTraversalSample {
         return false;
     }
 
+    private static boolean canProceed(int[][] maze, int xPoint, int yPoint) {
+        return maze[xPoint][yPoint] == 0;
+    }
+
     public static boolean canProceed(int nextVal) {
         return nextVal == 0;
     }
@@ -60,19 +97,6 @@ public final class MatrixTraversalSample {
         int matrix[][] = { { 0, 1, 1, 1, 1 }, { 0, 1, 1, 1, 1 }, { 0, 1, 0, 0, 0 }, { 0, 0, 0, 0, 1, 0 }, { 1, 1, 1, 1, 0 } };
         boolean pathExist = isPathExist(matrix);
         System.out.println(String.format("Path Exists Check from [{0,0}, {3,3}] [%b]", pathExist));
-    }
-
-    public static void printArr(String message, Point[] visited) {
-        System.out.println(String.format("--- printing array [%s] ---", message));
-        for (int i = 0; i < visited.length;i++) {
-            Point current = visited[i];
-            if (current != null) {
-                System.out.println(current);
-            } else {
-                break;
-            }
-        }
-        System.out.println(String.format("--- finished printing array [%s] ---", message));
     }
 }
 

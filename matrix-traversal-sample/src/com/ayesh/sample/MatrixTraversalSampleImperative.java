@@ -19,10 +19,10 @@ public final class MatrixTraversalSampleImperative {
                     path[pathIdx++] = new Point(targetXValue, targetYValue++);
                 } else if (targetXValue <= maze.length - 2 && maze[targetXValue + 1][targetYValue] == 0) {
                     path[pathIdx++] = new Point(targetXValue++, targetYValue);
-                } else if (maze[targetXValue - 1][targetYValue] == 0) {
-                    path[pathIdx--] = new Point(targetXValue--, targetYValue);
-                } else if (maze[targetXValue][targetYValue - 1] == 0) {
-                    path[pathIdx--] = new Point(targetXValue, targetYValue--);
+                } else if (targetXValue != 0 && maze[targetXValue - 1][targetYValue] == 0) {
+                    path[pathIdx++] = new Point(targetXValue--, targetYValue);
+                } else if (targetYValue != 0 && maze[targetXValue][targetYValue - 1] == 0) {
+                    path[pathIdx++] = new Point(targetXValue, targetYValue--);
                 } else {
                     return false;
                 }
@@ -36,9 +36,16 @@ public final class MatrixTraversalSampleImperative {
     }
 
     public static void main(String... args) {
-        int matrix[][] = { { 0, 1, 1, 1, 1 }, { 0, 1, 1, 1, 1 }, { 0, 1, 0, 0, 0 }, { 0, 0, 0, 1, 0 }, { 1, 1, 1, 1, 0 } };
+        int matrix[][] = {
+                {0,1,1,1,1,1},
+                {0,1,0,0,0,1},
+                {0,0,0,1,0,1},
+                {1,1,1,1,0,1},
+                {1,1,1,1,0,1},
+                {1,1,1,1,0,0}
+        };
         boolean pathExist = isPathExistV2(matrix);
-        System.out.println(String.format("Path Exists Check from [{0,0}, {4, 4}] [%b]", pathExist));
+        System.out.println(String.format("Path Exists Check from [{0,0}, {5, 5}] [%b]", pathExist));
     }
 }
 

@@ -11,6 +11,10 @@ public final class MatrixTraversalSampleImperative {
 
         while (targetXValue < maze.length) {
             while (targetYValue < maze[targetXValue].length) {
+                if (pathIdx > 1 && targetXValue == 0 && targetYValue == 0) {
+                    return false;
+                }
+
                 if (targetXValue == target.getxPoint() && targetYValue == target.getyPoint()) {
                     path[pathIdx++] = target;
                     CommonUtils.printArr("Test is Finished", path);
@@ -28,11 +32,7 @@ public final class MatrixTraversalSampleImperative {
                 }
             }
         }
-        return true;
-    }
-
-    private static boolean canProceed(int[][] maze, int xPoint, int yPoint) {
-        return maze[xPoint][yPoint] == 0;
+        return false;
     }
 
     public static void main(String... args) {

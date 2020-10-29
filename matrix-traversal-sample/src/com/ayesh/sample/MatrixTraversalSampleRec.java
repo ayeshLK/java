@@ -4,11 +4,13 @@ import static com.ayesh.sample.CommonUtils.printMatrix;
 
 public class MatrixTraversalSampleRec {
     public static boolean isPathExist(int[][] maze, int startX, int startY, Point[] path, int pathIdx) {
-        String message = String.format("Start X [%d] Start Y [%d]", startX, startY);
-        printMatrix(maze, startX, startY, message);
+        printMatrix(maze, startX, startY, String.format("Start X [%d] Start Y [%d]", startX, startY));
 
         if (startX == 0 && startY == 0) {
             path[pathIdx++] = new Point(startX, startY);
+            if (pathIdx > 1) {
+                return false;
+            }
         }
 
         if (startX == maze.length - 1 && startY == maze[startX].length - 1) {

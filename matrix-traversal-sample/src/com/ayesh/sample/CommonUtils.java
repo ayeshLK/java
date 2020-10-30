@@ -1,6 +1,17 @@
 package com.ayesh.sample;
 
 public final class CommonUtils {
+    public static boolean isNextPointIsPreviousPoint(Point[] path, int pathIdx, int nextPointX, int nextPointY) {
+        if (pathIdx > 0) {
+            Point previousPoint = path[pathIdx - 1];
+            System.out.println(String.format("Prev-Point Check [%s] X [%d] Y [%d]", previousPoint, nextPointX, nextPointY));
+            return previousPoint != null
+                    && previousPoint.getxPoint() == nextPointX && previousPoint.getyPoint() == nextPointY;
+        } else {
+            return false;
+        }
+    }
+
     public static int[][] getMatrixPortion(int[][] matrix, int startX, int startY) {
         int[][] output = new int[matrix.length - startX][matrix[startX].length - startY];
         int xAxis = 0;

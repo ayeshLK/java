@@ -1,5 +1,7 @@
 package com.ayesh.sample;
 
+import static com.ayesh.sample.CommonUtils.isNextPointIsPreviousPoint;
+
 public final class MatrixTraversalSampleImperative {
     public static boolean isPathExistV2(int[][] maze) {
         Point target = new Point(maze.length - 1, maze[0].length - 1);
@@ -49,17 +51,6 @@ public final class MatrixTraversalSampleImperative {
         return targetXValue <= maze.length - 2
                 && isNotBlocked(maze, targetXValue + 1, targetYValue)
                 && !isPreviousPoint;
-    }
-
-    private static boolean isNextPointIsPreviousPoint(Point[] path, int pathIdx, int nextPointX, int nextPointY) {
-        if (pathIdx > 0) {
-            Point previousPoint = path[pathIdx - 1];
-            System.out.println(String.format("Prev-Point Check [%s] X [%d] Y [%d]", previousPoint, nextPointX, nextPointY));
-            return previousPoint != null
-                    && previousPoint.getxPoint() == nextPointX && previousPoint.getyPoint() == nextPointY;
-        } else {
-            return false;
-        }
     }
 
     private static boolean checkLeftPath(int[][] maze, int targetXValue, int targetYValue) {

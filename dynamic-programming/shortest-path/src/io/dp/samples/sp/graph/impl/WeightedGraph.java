@@ -5,6 +5,7 @@ import io.dp.samples.sp.graph.Graph;
 import io.dp.samples.sp.graph.Vertex;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 public class WeightedGraph<T extends Vertex, E extends Edge<T>> implements Graph<T, E> {
@@ -12,8 +13,8 @@ public class WeightedGraph<T extends Vertex, E extends Edge<T>> implements Graph
     private final Set<T> vertices;
 
     public WeightedGraph(Set<E> edges, Set<T> vertices) {
-        this.edges = edges;
-        this.vertices = vertices;
+        this.edges = new HashSet<>(edges);
+        this.vertices = new HashSet<>(vertices);
     }
 
     @Override
@@ -38,6 +39,14 @@ public class WeightedGraph<T extends Vertex, E extends Edge<T>> implements Graph
 
     @Override
     public void addEdge(E edge) {
+        if (!this.vertices.contains(edge.src())) {
+            addVertex(edge.src());
+        }
+
+        if (!this.vertices.contains(edge.target())) {
+            addVertex(edge.target());
+        }
+
         this.edges.add(edge);
     }
 
